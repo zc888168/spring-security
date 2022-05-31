@@ -148,6 +148,7 @@ public final class CsrfConfigurer<H extends HttpSecurityBuilder<H>>
 	 *
 	 * @since 4.0
 	 */
+	//定义哪些路径不需要防护
 	public CsrfConfigurer<H> ignoringAntMatchers(String... antPatterns) {
 		return new IgnoreCsrfProtectionRegistry(this.context).antMatchers(antPatterns).and();
 	}
