@@ -612,12 +612,12 @@ public final class HttpSecurity extends AbstractConfiguredSecurityBuilder<Defaul
 	 * @return the {@link HttpSecurity} for further customizations
 	 * @throws Exception
 	 */
-	//跨域支持
+	// 跨域支持
 	public HttpSecurity cors(Customizer<CorsConfigurer<HttpSecurity>> corsCustomizer) throws Exception {
 		corsCustomizer.customize(getOrApply(new CorsConfigurer<>()));
 		return HttpSecurity.this;
 	}
-	
+
 	/**
 	 * Allows configuring of Session Management.
 	 *
@@ -1558,7 +1558,7 @@ public final class HttpSecurity extends AbstractConfiguredSecurityBuilder<Defaul
 	 * @return the {@link CsrfConfigurer} for further customizations
 	 * @throws Exception
 	 */
-	//csrf开关
+	// csrf开关
 	public CsrfConfigurer<HttpSecurity> csrf() throws Exception {
 		ApplicationContext context = getContext();
 		return getOrApply(new CsrfConfigurer<>(context));

@@ -37,7 +37,7 @@ public abstract class AbstractHttpConfigurer<T extends AbstractHttpConfigurer<T,
 	 * version of the configuration can be applied.
 	 * @return the {@link HttpSecurityBuilder} for additional customizations
 	 */
-	//关闭 eg csrf
+	// 关闭 eg csrf
 	@SuppressWarnings("unchecked")
 	public B disable() {
 		getBuilder().removeConfigurer(getClass());
