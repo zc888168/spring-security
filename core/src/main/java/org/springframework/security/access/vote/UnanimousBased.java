@@ -30,6 +30,7 @@ import org.springframework.security.core.Authentication;
  * {@link org.springframework.security.access.AccessDecisionManager} that requires all
  * voters to abstain or grant access.
  */
+//(基于一致)的逻辑：一票否决权
 public class UnanimousBased extends AbstractAccessDecisionManager {
 
 	public UnanimousBased(List<AccessDecisionVoter<?>> decisionVoters) {

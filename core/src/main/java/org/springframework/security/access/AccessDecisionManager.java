@@ -26,6 +26,7 @@ import org.springframework.security.core.Authentication;
  *
  * @author Ben Alex
  */
+//决策管理器
 public interface AccessDecisionManager {
 
 	/**

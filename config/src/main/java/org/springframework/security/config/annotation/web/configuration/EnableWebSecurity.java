@@ -79,6 +79,7 @@ import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 		HttpSecurityConfiguration.class })
 @EnableGlobalAuthentication
 @Configuration
+//开启security安全注解
 public @interface EnableWebSecurity {
 
 	/**

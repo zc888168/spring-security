@@ -33,6 +33,8 @@ import org.springframework.security.core.Authentication;
  * agreement (ignoring abstains). If you require unanimity, please see
  * {@link UnanimousBased}.
  */
+//(基于共识)的逻辑是：
+//赞成票多余反对票则表示通过，反对票多余赞成票则抛出AccessDeniedException
 public class ConsensusBased extends AbstractAccessDecisionManager {
 
 	private boolean allowIfEqualGrantedDeniedDecisions = true;

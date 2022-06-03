@@ -67,6 +67,7 @@ import org.springframework.util.Assert;
  * @see WebSecurity
  */
 @Configuration(proxyBeanMethods = false)
+//安全配置类 就生成过滤器链
 public class WebSecurityConfiguration implements ImportAware, BeanClassLoaderAware {
 
 	private WebSecurity webSecurity;
@@ -101,6 +102,7 @@ public class WebSecurityConfiguration implements ImportAware, BeanClassLoaderAwa
 	 * @throws Exception
 	 */
 	@Bean(name = AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME)
+	//这个方法返回的就是过滤器链
 	public Filter springSecurityFilterChain() throws Exception {
 		boolean hasConfigurers = this.webSecurityConfigurers != null && !this.webSecurityConfigurers.isEmpty();
 		boolean hasFilterChain = !this.securityFilterChains.isEmpty();

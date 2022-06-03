@@ -29,6 +29,7 @@ import org.springframework.security.core.Authentication;
  * {@link org.springframework.security.access.AccessDecisionManager} that grants access if
  * any <code>AccessDecisionVoter</code> returns an affirmative response.
  */
+//(基于肯定)的逻辑是：一票通过权
 public class AffirmativeBased extends AbstractAccessDecisionManager {
 
 	public AffirmativeBased(List<AccessDecisionVoter<?>> decisionVoters) {

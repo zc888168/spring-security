@@ -52,7 +52,7 @@ import org.springframework.web.filter.GenericFilterBean;
  * <p>
  * If authentication is successful, an {@link InteractiveAuthenticationSuccessEvent} will
  * be published to the application context. No events will be published if authentication
- * was unsuccessful, because this would generally be recorded via an
+ * was unsuccessful, because thire s would generally be recorded via an
  * {@code AuthenticationManager}-specific application event.
  * <p>
  * Normally the request will be allowed to proceed regardless of whether authentication
