@@ -39,6 +39,7 @@ public interface AuthenticationProvider {
 	 * <code>Authentication</code> class will be tried.
 	 * @throws AuthenticationException if authentication fails.
 	 */
+	//执行认证，返回认证结果
 	Authentication authenticate(Authentication authentication) throws AuthenticationException;
 
 	/**
@@ -60,6 +61,7 @@ public interface AuthenticationProvider {
 	 * @return <code>true</code> if the implementation can more closely evaluate the
 	 * <code>Authentication</code> class presented
 	 */
+	//判断是否支持当前的认证对象
 	boolean supports(Class<?> authentication);
 
 }

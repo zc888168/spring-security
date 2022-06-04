@@ -183,6 +183,7 @@ public abstract class AbstractSecurityInterceptor
 					+ " but AbstractSecurityInterceptor only configured to support secure objects of type: "
 					+ getSecureObjectClass());
 		}
+		//获取 ConfigAttribute 集合
 		Collection<ConfigAttribute> attributes = this.obtainSecurityMetadataSource().getAttributes(object);
 		if (CollectionUtils.isEmpty(attributes)) {
 			Assert.isTrue(!this.rejectPublicInvocations,
@@ -200,10 +201,12 @@ public abstract class AbstractSecurityInterceptor
 			credentialsNotFound(this.messages.getMessage("AbstractSecurityInterceptor.authenticationNotFound",
 					"An Authentication object was not found in the SecurityContext"), object, attributes);
 		}
+		//获取认证信息
 		Authentication authenticated = authenticateIfRequired();
 		if (this.logger.isTraceEnabled()) {
 			this.logger.trace(LogMessage.format("Authorizing %s with attributes %s", object, attributes));
 		}
+		//执行授权
 		// Attempt authorization
 		attemptAuthorization(object, attributes, authenticated);
 		if (this.logger.isDebugEnabled()) {

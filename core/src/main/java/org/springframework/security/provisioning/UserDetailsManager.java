@@ -31,16 +31,19 @@ public interface UserDetailsManager extends UserDetailsService {
 	/**
 	 * Create a new user with the supplied details.
 	 */
+	//创建用户
 	void createUser(UserDetails user);
 
 	/**
 	 * Update the specified user.
 	 */
+	//更新用户
 	void updateUser(UserDetails user);
 
 	/**
 	 * Remove the user with the given login name from the system.
 	 */
+	//删除用户
 	void deleteUser(String username);
 
 	/**
@@ -49,11 +52,13 @@ public interface UserDetailsManager extends UserDetailsService {
 	 * @param oldPassword current password (for re-authentication if required)
 	 * @param newPassword the password to change to
 	 */
+	//修改密码
 	void changePassword(String oldPassword, String newPassword);
 
 	/**
 	 * Check if a user with the supplied login name exists in the system.
 	 */
+	//判断指定用户名的用户是否存在
 	boolean userExists(String username);
 
 }

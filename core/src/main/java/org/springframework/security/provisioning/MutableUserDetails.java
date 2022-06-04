@@ -24,6 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 interface MutableUserDetails extends UserDetails {
 
+	//设置密码
 	void setPassword(String password);
 
 }

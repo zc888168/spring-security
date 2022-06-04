@@ -44,6 +44,7 @@ public interface UserDetailsService {
 	 * @throws UsernameNotFoundException if the user could not be found or the user has no
 	 * GrantedAuthority
 	 */
+	//根据用户名获取用户信息
 	UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 
 }

@@ -101,12 +101,15 @@ public final class CsrfFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		request.setAttribute(HttpServletResponse.class.getName(), response);
+		//从 CsrfTokenRepository 中获取 CsrfToken
 		CsrfToken csrfToken = this.tokenRepository.loadToken(request);
 		boolean missingToken = (csrfToken == null);
+		//如果找不到 CsrfToken 就生成一个并保存到 CsrfTokenRepository 中
 		if (missingToken) {
 			csrfToken = this.tokenRepository.generateToken(request);
 			this.tokenRepository.saveToken(csrfToken, request, response);
 		}
+		//在请求中添加 CsrfToken
 		request.setAttribute(CsrfToken.class.getName(), csrfToken);
 		request.setAttribute(csrfToken.getParameterName(), csrfToken);
 		if (!this.requireCsrfProtectionMatcher.matches(request)) {
@@ -117,10 +120,12 @@ public final class CsrfFilter extends OncePerRequestFilter {
 			filterChain.doFilter(request, response);
 			return;
 		}
+		//从请求中获取 CsrfToken
 		String actualToken = request.getHeader(csrfToken.getHeaderName());
 		if (actualToken == null) {
 			actualToken = request.getParameter(csrfToken.getParameterName());
 		}
+		//如果请求所携带的 CsrfToken 与从 Repository 中获取的不同，则抛出异常
 		if (!equalsConstantTime(csrfToken.getToken(), actualToken)) {
 			this.logger.debug(
 					LogMessage.of(() -> "Invalid CSRF token found for " + UrlUtils.buildFullRequestUrl(request)));
@@ -129,6 +134,7 @@ public final class CsrfFilter extends OncePerRequestFilter {
 			this.accessDeniedHandler.handle(request, response, exception);
 			return;
 		}
+		//正常情况下继续执行过滤器链的后续流程
 		filterChain.doFilter(request, response);
 	}
 

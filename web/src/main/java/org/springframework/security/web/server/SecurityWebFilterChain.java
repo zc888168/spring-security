@@ -37,12 +37,14 @@ public interface SecurityWebFilterChain {
 	 * @param exchange the {@link ServerWebExchange}
 	 * @return true if it matches, else false
 	 */
+	//评估交互上下文 ServerWebExchange 是否匹配
 	Mono<Boolean> matches(ServerWebExchange exchange);
 
 	/**
 	 * The {@link WebFilter} to use
 	 * @return
 	 */
+	//一组过滤器
 	Flux<WebFilter> getWebFilters();
 
 }
