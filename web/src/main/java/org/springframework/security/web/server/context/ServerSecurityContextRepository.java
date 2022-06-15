@@ -27,6 +27,7 @@ import org.springframework.web.server.ServerWebExchange;
  * @author Rob Winch
  * @since 5.0
  * @see ReactorContextWebFilter
+ * save 方法将 SecurityContext 与特定的 ServerWebExchange 关联，然后使用来自 用户请求的 load 方法将其还原。
  */
 public interface ServerSecurityContextRepository {
 

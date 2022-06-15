@@ -29,6 +29,7 @@ import java.lang.annotation.Target;
  *
  * @author Luke Taylor
  * @since 3.0
+ * @PreAuthorize 注解用于访问控制，检查Authentication 是否具有所需的角色
  */
 @Target({ ElementType.METHOD, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)

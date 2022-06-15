@@ -39,8 +39,11 @@ public final class ReactiveSecurityContextHolder {
 	/**
 	 * Gets the {@code Mono<SecurityContext>} from Reactor {@link Context}
 	 * @return the {@code Mono<SecurityContext>}
+	 * 使用Spring Security中的 ReactiveSecurityContextHolder 访问响应式SecurityContext。
+	 * ReactiveSecurityContextHolder 的 getContext 方法返回 Mono<SecurityContext>
 	 */
 	public static Mono<SecurityContext> getContext() {
+		//可以使用subscriberContext访问内部Reactor Context。
 		// @formatter:off
 		return Mono.subscriberContext()
 				.filter(ReactiveSecurityContextHolder::hasSecurityContext)

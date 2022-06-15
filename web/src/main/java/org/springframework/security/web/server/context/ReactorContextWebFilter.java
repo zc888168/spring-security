@@ -32,6 +32,7 @@ import org.springframework.web.server.WebFilterChain;
  *
  * @author Rob Winch
  * @since 5.0
+ * 在调用期间， ReactorContextWebFilter 使用subscriberContext 方法提供一个Reactor Context。
  */
 public class ReactorContextWebFilter implements WebFilter {
 

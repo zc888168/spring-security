@@ -31,6 +31,8 @@ import org.springframework.core.Ordered;
  *
  * @author Rob Winch
  * @since 5.0
+ * 该注解导入所需的配置，以启用特定的带注解MethodInterceptor
+ * 为了启用特定的带注解的 MethodInterceptor ，必须添加 @EnableReactiveMethodSecurity 注解，导入所需的配置。
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
